@@ -14,7 +14,7 @@
                  font-weight: 100; }
             em { font-family: 'Special Elite', cursive;
                  font-size: 18px;
-                 font-weight: 100; 
+                 font-weight: 100;
                  font-style: normal; }
         </style>
     </head>
@@ -44,17 +44,34 @@
         <span id="Willpower" class="ss-dot-rating" data-dot-title="Willpower" data-dot-max="10" data-dot-min="0" data-dot-value="6" data-dot-is-squared="true"></span>
         <br />
         <br />
-        <em>Colorized</em>
+        <em>Health</em>
         <br />
-        <span id="Health" class="ss-dot-rating" data-dot-title="Health" data-dot-max="12" data-dot-min="0" data-dot-value="6" data-dot-color-empty="#330000" data-dot-color-marked="#aa0000"></span>
+        <span id="Health" class="ss-health-rating" data-health-title="Health" data-health-max="20" data-health-bashing="3" data-health-lethal="2" data-health-aggravated="1"></span>
+				<br />
         <br />
+				<button onclick="$('#Health').AddDamage(1, 0, 0);">Add 1 Bashing</button>
+				<button onclick="$('#Health').AddDamage(0, 1, 0);">Add 1 Lethal</button>
+        <button onclick="$('#Health').AddDamage(0, 0, 1);">Add 1 Aggravated</button>
         <br />
+				<br />
+				<input id="B" value="0" size="3" /> <input id="L" value="0" size="3" /> <input id="A" value="0" size="3" /> <button onclick="$('#Health').AddDamage(parseInt($('#B').val()), parseInt($('#L').val()), parseInt($('#A').val()));">Add X Bashing, X Lethal, X Aggravated</button>
+        <br />
+				<br />
+				<button onclick="$('#Health').HealDamage(1, 0, 0);">Heal 1 Bashing</button>
+				<button onclick="$('#Health').HealDamage(0, 1, 0);">Heal 1 Lethal</button>
+        <button onclick="$('#Health').HealDamage(0, 0, 1);">Heal 1 Aggravated</button>
+        <br />
+				<br />
+        <button onclick="alert('bashing: ' + $('#Health').data('health-bashing') + '\nlethal: ' + $('#Health').data('health-lethal') + '\naggravated: ' + $('#Health').data('health-aggravated'));">How damaged is my health?</button>
+        <br />
+				<br />
         <script>
             $("#Manipulation").DotRating();
             $("#Athletics").DotRating();
             $("#Vicissitude").DotRating();
             $("#Willpower").DotRating();
-            $("#Health").DotRating();
+
+            $("#Health").HealthRating();
         </script>
     </body>
 </html>

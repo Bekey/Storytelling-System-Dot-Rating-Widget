@@ -1,4 +1,4 @@
-/* Storytelling System Dot Rating Widget v1.1 */
+/* Storytelling System Dot Rating Widget v1.3 */
 
 .ss-dot-rating:before {
     content: attr(data-dot-title);
@@ -48,4 +48,43 @@
 
 .ss-dot-xmark.ss-dot-marked {
     background-image: url(xmark.svg);
+}
+
+.ss-health-rating:before {
+    content: attr(data-health-title);
+    vertical-align: middle;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    padding: 0px;
+}
+
+.ss-health {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 0.8em;
+    width: 0.8em;
+    margin: 0.1em;
+    border-radius: 1em;
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: black;
+    border-radius: 0em;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-size: cover;
+    background-clip: border-box;
+}
+
+.ss-health-bashing {
+    background-image: url(slashmark.svg);
+}
+
+.ss-health-lethal {
+    background-image: url(xmark.svg);
+}
+
+.ss-health-aggravated {
+    background-image: url(starmark.svg);
 }

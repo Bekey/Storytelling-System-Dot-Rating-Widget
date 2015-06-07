@@ -1,14 +1,14 @@
 Storytelling-System-Dot-Rating-Widget
 =====================================
 
-An HTML5 widget for dot rating that is used in tabletop roleplaying games based on the Storytelling System (e.g. World of Darkness, Vampire the Masquerade etc). Uses jQuery.
+An HTML5 widget for dot and health rating that is used in tabletop roleplaying games based on the Storytelling System (e.g. World of Darkness, Vampire the Masquerade etc). Uses jQuery.
 
 Examples
 ========
 
 You can see some basic examples live [here](https://dl.dropboxusercontent.com/u/62860879/Storytelling%20System%20-%20HTML5%20Dot%20Component/example.html).
 
-Using the widget
+Using the dot widget
 ======================
 
 Include the stylesheet and javascript file in the head section of your page:
@@ -49,3 +49,43 @@ The data-dot-* attributes
 | data-dot-color-empty | html color | Sets the color of the dot when its empty. |
 | data-dot-color-marked | html color | Sets the color of the dot when its marked. |
 | data-dot-color-border | html color | Sets the color of the dot's border. |
+
+
+Using the health widget
+======================
+
+Include the stylesheet and javascript file in the head section of your page:
+
+```html
+<link rel='stylesheet' href='ssdot.css' type='text/css' />
+<script src="ssdot.js"></script>
+```
+
+Create a span element with the ss-health-rating class, give values to the data-health-* attributes:
+
+```html
+<span id="health" class="ss-health-rating" data-health-title="health" data-health-max="20" data-health-bashing="3"></span>
+```
+
+Call .HealthRating() on it for initialization:
+
+```js
+$("#Health").HealthRating();
+```
+
+Now you can get the value using jQuery like this:
+
+```js
+$("#Health").data("health-bashing");
+```
+
+The data-health-* attributes
+======================
+
+| Attribute | Type |	Description |
+| ---- |:----:|:-------:|:----------- |
+| data-health-title | string | The title of the health rating it represents. |
+| data-health-max | number | The maximum number of boxes this rating has. |
+| data-health-bashing | number | The default amount of bashing damage. |
+| data-health-lethal | number | The default amount of lethal damage. |
+| data-health-aggravated | number | The default amount of aggravated damage. |
